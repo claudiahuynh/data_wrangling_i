@@ -189,3 +189,14 @@ Import SAS data. Load the library haven first
 ``` r
 pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 ```
+
+\#Never use read.csv Read.csv will not read the data right. Read_csv
+treats the data as a tibble instead of a dataframe. It will prevent you
+from using shorthands that seem to work but may break the code such as
+litters_df\$L. For example:
+
+``` r
+litters_df = read.csv("data/FAS_litters.csv")
+
+#litters_df$L example. $ is a shorthand that pulls a variable out of the dataset. 
+```
