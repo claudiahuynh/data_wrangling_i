@@ -6,3 +6,25 @@ output: github_document
 ```{r setup, echo = FALSE, message = FALSE}
 library(tidyverse)
 ```
+
+This document will show how to import data. 
+
+```{r}
+litters_df = read_csv("data/FAS_litters.csv")
+```
+
+## Look at data set
+
+```{r}
+litters_df
+head(litters_df)
+tail(litters_df)
+```
+
+```{r eval = FALSE}
+#view will open the entire data frame in a new window 
+#eval = FALSE so the data set doesn't show up in the knitted document
+view(litters_df)
+
+```
+
