@@ -3,10 +3,75 @@ title: "Data Manipulation"
 output: github_document
 ---
 
+This document will show how to *manipulate* data. 
+
+Importing the two datasets pups and litters that we're going to manipulate. 
+
 ```{r setup, echo = FALSE, message = FALSE}
 library(tidyverse)
 
 ```
 
-This document will show how to manipulate data. 
+```{r}
+litters_df = 
+  read_csv("data/FAS_litters.csv", na = c("NA", "","."))
 
+litters_df = janitor::clean_names(litters_df)
+
+pups_df = 
+  read_csv("data/FAS_pups.csv", na = c("NA", "","."))
+
+pups_df = janitor::clean_names(pups_df)
+```
+
+## `select`
+
+Use `select()` to select variables by naming the data frame (litters_df) and different variables you want to select. 
+
+```{r}
+select(litters_df, group, litter_number, gd0_weight)
+```
+
+You can also select a range of columns - group to gd18_weight
+```{r}
+select(litters_df, group:gd18_weight)
+```
+
+You can also remove columns with the - sign.
+```{r}
+select(litters_df, -pups_survive)
+```
+
+You can also remove a range of columns. 
+```{r}
+select(litters_df, -(group:gd18_weight))
+```
+
+```{r}
+select(litters_df, starts_with("gd"))
+
+select(litters_df, contains("pups"))
+```
+
+You can also rename columns and rearrange columns (last 2 lines). Can use relocate in place of select to rearrange columns. 
+```{r}
+select(litters_df, GROUP = group)
+
+rename(litters_df, GROUP = group)
+
+select(litters_df, litter_number, gd0_weight, everything())
+
+relocate(litters_df, litter_number, gd0_weight)
+```
+
+```{r learning_assessment}
+select(pups_df, litter_number, sex, pd_ears)
+```
+
+## `filter`
+
+## `mutate`
+
+## `arrange`
+
+## `PIPING`
