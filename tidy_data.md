@@ -159,7 +159,8 @@ pups_df =
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
-Join the data sets
+Join the data sets. Use left_join to join the two datasets. Specify
+which column to join by using the by= function.
 
 ``` r
 fas_df = 

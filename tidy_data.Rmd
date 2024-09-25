@@ -131,7 +131,7 @@ pups_df =
   )
 ```
 
-Join the data sets
+Join the data sets. Use left_join to join the two datasets. Specify which column to join by using the by= function. 
 
 ```{r}
 fas_df = 
